@@ -1,0 +1,168 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "namedaddy",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": [
+                        "home"
+                    ]
+                },
+                {
+                    "name": "GetNameIntent",
+                    "slots": [],
+                    "samples": [
+                        "my name",
+                        "name"
+                    ]
+                },
+                {
+                    "name": "GetGenderIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "{name}",
+                        "my name is {name}"
+                    ]
+                },
+                {
+                    "name": "GetMeaningIntent",
+                    "slots": [
+                        {
+                            "name": "gender",
+                            "type": "USER_GENDER"
+                        }
+                    ],
+                    "samples": [
+                        "{gender}"
+                    ]
+                },
+                {
+                    "name": "GetHealthAnalysis",
+                    "slots": [],
+                    "samples": [
+                        "repeat",
+                        "again",
+                        "analysis",
+                        "health analysis",
+                        "health"
+                    ]
+                },
+                {
+                    "name": "RestartIntent",
+                    "slots": [],
+                    "samples": [
+                        "refresh",
+                        "start over",
+                        "restart"
+                    ]
+                },
+                {
+                    "name": "GetMoreMeaningIntent",
+                    "slots": [],
+                    "samples": [
+                        "continue",
+                        "more",
+                        "next"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "USER_GENDER",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "female",
+                                "synonyms": [
+                                    "gal",
+                                    "women",
+                                    "woman",
+                                    "girl"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "male",
+                                "synonyms": [
+                                    "dude",
+                                    "guy",
+                                    "man",
+                                    "men",
+                                    "boy"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetMeaningIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "gender",
+                            "type": "USER_GENDER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {},
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.369473242696.422351748700.400675487972",
+                                    "values": [
+                                        "woman",
+                                        "gal",
+                                        "men",
+                                        "guy",
+                                        "man",
+                                        "female",
+                                        "girl",
+                                        "dude",
+                                        "boy",
+                                        "male",
+                                        "women"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.369473242696.422351748700.400675487972",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "NameDaddy only accepts keywords related to Male or Female"
+                    }
+                ]
+            }
+        ]
+    }
+}
