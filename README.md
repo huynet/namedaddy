@@ -33,7 +33,9 @@ The following **optional**:
 ## Notes
 
 Crawling async with cheerio and axios is pretty fun.
+
 My name of Huy creates a very expressive, versatile, and spontaneous nature.
+
 Working with AWS is not the best experience.
 
 ## License
